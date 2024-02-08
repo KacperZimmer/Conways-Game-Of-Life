@@ -36,4 +36,4 @@ This program implements the classical Conway's Game of Life using the Raylib lib
 
 ## Example 
 
-![Tekst zastępczy]([nazwa_pliku_obrazu.png](https://github.com/KacperZimmer/Conways-Game-Of-Life/blob/main/img/example.png)https://github.com/KacperZimmer/Conways-Game-Of-Life/blob/main/img/example.png)
+![Tekst zastępczy](nazwa_pliku_obrazu.png](https://github.com/KacperZimmer/Conways-Game-Of-Life/blob/main/img/example.png)https://github.com/KacperZimmer/Conways-Game-Of-Life/blob/main/img/example.png)
