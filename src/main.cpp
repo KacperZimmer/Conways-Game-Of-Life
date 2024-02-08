@@ -6,17 +6,17 @@
 
 
 short calculateNeighbor(const std::vector<std::vector<short>>& grid, size_t row, size_t col){
-     short counter{};
+     short neighborCounter{};
 
      for(int i = -1; i < 2; ++i) {
          for (int j = -1; j < 2; ++j) {
              if(j == 0 && i == 0){
                  continue;
              }
-             if (grid[row + i][col + j] == 1) ++counter;
+             if (grid[row + i][col + j] == 1) ++neighborCounter;
          }
      }
-     return counter;
+     return neighborCounter;
 }
 
 
@@ -48,7 +48,6 @@ std::vector<std::vector<short>> createNewGeneration(const std::vector<std::vecto
             currentState = grid[row][cols];
 
             if(row == 0 || row == (grid.size() -1) || cols == 0 || cols == (grid[0].size() - 1)){
-                newGenerationGrid[row][cols] = currentState ;
                 continue;
             }
             numOfNeighbor = calculateNeighbor(grid, row, cols);
@@ -97,9 +96,9 @@ int main() {
 
     const int screenWidth = 1000;
     const int screenHeight = 1000;
-    InitWindow(screenWidth, screenHeight, "Nazwa twojej aplikacji");
+    InitWindow(screenWidth, screenHeight, "Game Of Life");
 
-    int numOfCellsInRow = screenHeight / 5; // 10 -> size of each cell
+    int numOfCellsInRow = screenHeight / 5;
     int numOfCellsInCol = screenWidth / 5;
 
     std::vector<std::vector<short>> grid = createGrid(screenWidth, screenHeight);
