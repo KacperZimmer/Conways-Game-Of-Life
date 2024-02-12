@@ -20,7 +20,6 @@ short calculateNeighbor(const std::vector<std::vector<short>>& grid, size_t row,
 }
 
 
-
 void renderGrid(const std::vector<std::vector<short>>& grid){
     int currentXPos{};
     int currentYPos{};
@@ -67,9 +66,7 @@ std::vector<std::vector<short>> createNewGeneration(const std::vector<std::vecto
 
 }
 
-std::vector<std::vector<short>> createGrid(int screenWidth, int screenHeight){
-    int numOfCellsInRow = screenHeight / 5; // 10 -> size of each cell
-    int numOfCellsInCol = screenWidth / 5;
+std::vector<std::vector<short>> createGrid(int screenWidth, int screenHeight, int numOfCellsInRow, int numOfCellsInCol){
     int randomNum{};
 
     std::random_device rd;
@@ -83,7 +80,6 @@ std::vector<std::vector<short>> createGrid(int screenWidth, int screenHeight){
     for(auto & row : grid){
         for(short & col : row){
             randomNum = distrib(gen);
-
             col = (randomNum == 1) ? 1 : 0;
         }
     }
@@ -101,7 +97,7 @@ int main() {
     int numOfCellsInRow = screenHeight / 5;
     int numOfCellsInCol = screenWidth / 5;
 
-    std::vector<std::vector<short>> grid = createGrid(screenWidth, screenHeight);
+    std::vector<std::vector<short>> grid = createGrid(screenWidth, screenHeight, numOfCellsInRow, numOfCellsInCol);
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
     while (!WindowShouldClose()) {
